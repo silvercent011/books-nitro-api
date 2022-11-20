@@ -9,5 +9,8 @@
   "devDependencies": {
     "nitropack": "^1.0.0",
     "prisma": "^4.6.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.6.1"
   }
 }
