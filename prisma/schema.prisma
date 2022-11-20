@@ -33,11 +33,11 @@ model Genre {
 }
 
 model Author {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
   name      String
-  email     String   @unique
-  birthdate DateTime
+  email     String    @unique
+  birthdate DateTime?
   books     Book[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
