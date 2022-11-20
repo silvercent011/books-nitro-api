@@ -9,3 +9,35 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Book {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  isbn        String   @unique
+  description String
+  launchDate  DateTime
+  author      Author   @relation(fields: [authorId], references: [id])
+  authorId    String   @db.ObjectId
+  genre       Genre    @relation(fields: [genreId], references: [id])
+  genreId     String   @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Genre {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  books     Book[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Author {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  birthdate DateTime
+  books     Book[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
