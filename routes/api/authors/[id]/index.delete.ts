@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const { id } = getRouterParams(event);
 
   const author = await prisma.author
-    .findFirst({
+    .delete({
       where: {
         id,
       },
