@@ -1,5 +1,3 @@
-import { defineEventHandler } from "h3";
-
-export default defineEventHandler(async (event) => {
+export default defineEventHandler((event) => {
   return "<h1>Hello World</h1>";
 });
