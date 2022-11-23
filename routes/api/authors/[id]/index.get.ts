@@ -8,6 +8,9 @@ export default defineEventHandler(async (event) => {
       where: {
         id,
       },
+      include: {
+        books: true,
+      },
     })
     .catch(() => {
       sendError(

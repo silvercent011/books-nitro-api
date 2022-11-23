@@ -1,7 +1,6 @@
 import { prisma } from "../../../utils/prisma";
 
 export default defineEventHandler(async (event) => {
-  const authors = await prisma.author.findMany();
-
-  return authors;
+  const books = await prisma.book.findMany();
+  return books;
 });

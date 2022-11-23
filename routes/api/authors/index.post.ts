@@ -29,8 +29,9 @@ export default defineEventHandler(async (event) => {
     }
 
     const newAuthor = await prisma.author.create({ data: payload });
+    event.node.res.statusCode = 201;
     return newAuthor;
   } catch {
-    return sendError(event, createError({ status: 500 }));
+    return sendError(event, createError({ statusCode: 500 }));
   }
 });
